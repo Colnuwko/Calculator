@@ -1,0 +1,54 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="600" MinWidth="500" Height="600" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="195*"/>
+            <RowDefinition Height="389*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="1,1,1,1" Grid.Row="0" DataContext="{Binding My_Class}" >
+            <TextBox Margin="1" Height="90" Text="{Binding Path=Input_str, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Margin="1" Height="90" IsReadOnly="True" Text="{Binding Path=Result, Mode=OneWay}"/>
+        </StackPanel>
+        <Grid Margin="5,5,5,5" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="CE" Grid.Column="0" Grid.Row="0" Margin="1,1,1,1"/>
+            <Button Content="C" Grid.Column="1" Grid.Row="0" Margin="1,1,1,1"/>
+            <Button Content="Стереть" Grid.Column="2" Grid.Row="0" Margin="1,1,1,1"/>
+            <Button Content="/" Grid.Column="3" Grid.Row="0" Margin="1,1,1,1"/>
+            <Button Content="7" Grid.Column="0" Grid.Row="1" Margin="1,1,1,1" Command="{Binding AddInput}"/>
+            <Button Content="4" Grid.Column="0" Grid.Row="2" Margin="1,1,1,1"/>
+            <Button Content="1" Grid.Column="0" Grid.Row="3" Margin="1,1,1,1"/>
+            <Button Content="8" Grid.Column="1" Grid.Row="1" Margin="1,1,1,1"/>
+            <Button Content="5" Grid.Column="1" Grid.Row="2" Margin="1,1,1,1"/>
+            <Button Content="2" Grid.Column="1" Grid.Row="3" Margin="1,1,1,1"/>
+            <Button Content="0" Grid.Column="1" Grid.Row="4" Margin="1,1,1,1"/>
+            <Button Content="9" Grid.Column="2" Grid.Row="1" Margin="1,1,1,1"/>
+            <Button Content="6" Grid.Column="2" Grid.Row="2" Margin="1,1,1,1"/>
+            <Button Content="3" Grid.Column="2" Grid.Row="3" Margin="1,1,1,1"/>
+            <Button Content="," Grid.Column="2" Grid.Row="4" Margin="1,1,1,1"/>
+            <Button Content="x" Grid.Column="3" Grid.Row="1" Margin="1,1,1,1"/>
+            <Button Content="-" Grid.Column="3" Grid.Row="2" Margin="1,1,1,1"/>
+            <Button Content="+" Grid.Column="3" Grid.Row="3" Margin="1,1,1,1"/>
+            <Button Content="=" Grid.Column="3" Grid.Row="4" Margin="1,1,1,1" Command="{Binding SetResult}"/>
+        </Grid>
+    </Grid>
+
+</Window>
