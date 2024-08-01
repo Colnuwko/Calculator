@@ -12,9 +12,10 @@ namespace Calculator
 {
     public class Model_Calc : INotifyPropertyChanged
     {
-        private string input_str;
+        private string input_str = "";
         private string result;
         private char[] mass_of_operators = {'+', '-', '*', '/'};
+        private bool use_del_last_input = false;
         public string Input_str
         { 
             get { return input_str;  }
@@ -37,6 +38,7 @@ namespace Calculator
                 {
                     rm_last_symbol();
                 }
+                
             }
             input_str += str_for_add;
 
@@ -46,18 +48,22 @@ namespace Calculator
 
         public void SetResult()
         {
-            new Calculating(input_str);
-            result = "хз пока";
+            Calculating ex = new Calculating();
+            result = ex.get_result(input_str);
             OnPropertyChanged("Result");
         }
 
         public void rm_last_input()
         {
-            
-            input_str = input_str.Substring(0, input_str.LastIndexOfAny(mass_of_operators)+1);
-            result = "";
-            OnPropertyChanged("Result");
-            OnPropertyChanged("Input_str");
+            if (!use_del_last_input)
+            {
+                use_del_last_input = true;
+                input_str = input_str.Substring(0, input_str.LastIndexOfAny(mass_of_operators) + 1);
+                result = "";
+                OnPropertyChanged("Result");
+                OnPropertyChanged("Input_str");
+            }
+            else { rm_all_input(); use_del_last_input = false; }
         }
         public void rm_all_input()
         {
@@ -68,9 +74,12 @@ namespace Calculator
         }
         public void rm_last_symbol()
         {
-            
-            input_str = input_str.Remove(input_str.Length - 1);
-            result = "";
+
+            if (input_str.Length != 0)
+            {
+                input_str = input_str.Remove(input_str.Length - 1);
+                result = "";
+            }
             OnPropertyChanged("Result");
             OnPropertyChanged("Input_str");
         }

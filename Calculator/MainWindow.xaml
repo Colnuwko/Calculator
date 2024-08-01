@@ -43,7 +43,7 @@
             <Button Content="9" Grid.Column="2" Grid.Row="1" Margin="1,1,1,1" Command="{Binding AddInput}" CommandParameter="9"/>
             <Button Content="6" Grid.Column="2" Grid.Row="2" Margin="1,1,1,1" Command="{Binding AddInput}" CommandParameter="6"/>
             <Button Content="3" Grid.Column="2" Grid.Row="3" Margin="1,1,1,1" Command="{Binding AddInput}" CommandParameter="3"/>
-            <Button Content="," Grid.Column="2" Grid.Row="4" Margin="1,1,1,1" Command="{Binding AddInput}" CommandParameter="."/>
+            <Button Content="," Grid.Column="2" Grid.Row="4" Margin="1,1,1,1" Command="{Binding AddInput}" CommandParameter=","/>
             <Button Content="x" Grid.Column="3" Grid.Row="1" Margin="1,1,1,1" Command="{Binding AddInput}" CommandParameter="*"/>
             <Button Content="-" Grid.Column="3" Grid.Row="2" Margin="1,1,1,1" Command="{Binding AddInput}" CommandParameter="-"/>
             <Button Content="+" Grid.Column="3" Grid.Row="3" Margin="1,1,1,1" Command="{Binding AddInput}" CommandParameter="+"/>
